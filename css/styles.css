@@ -1,0 +1,33 @@
+
+
+.article-list-wrapper
+{
+
+}
+
+.article-wrapper
+{
+    margin-top: 50px;
+    margin-bottom: 70px;
+}
+
+.article-wrapper:last-of-type
+{
+    margin-bottom: 0px;
+}
+
+.article-wrapper h1
+{
+
+}
+
+.article-wrapper h3
+{
+    margin-top: 10px;
+    color: #aaaaaa;
+}
+
+.article-wrapper p
+{
+    margin-top: 20px;
+}
