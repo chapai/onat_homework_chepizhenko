@@ -1,0 +1,3 @@
+[submodule "application/core"]
+	path = application/core
+	url = git@bitbucket.org:double_A/codeigniter_base_classes.git
