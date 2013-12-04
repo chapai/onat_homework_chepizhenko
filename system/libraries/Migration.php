@@ -38,7 +38,7 @@ class CI_Migration {
 	public function __construct($config = array())
 	{
 		# Only run this constructor on main library load
-		if (get_parent_class($this) !== FALSE)
+        if (get_parent_class($this) !== FALSE && get_class($this)!='MY_Migration')
 		{
 			return;
 		}
