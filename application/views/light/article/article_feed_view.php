@@ -9,7 +9,7 @@
 ?>
 
 <div class = "row">
-    <div class = "large-12 medium-12 small-12 columns large-centered ">
+    <div class = "large-12 medium-10 small-10 large-centered small-centered columns">
 
         <?foreach($articles as $article):?>
             <article class = 'article-wrapper'>

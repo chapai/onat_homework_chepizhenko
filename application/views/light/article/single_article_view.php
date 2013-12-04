@@ -10,7 +10,7 @@
 ?>
 
 <div class = "row">
-    <div class = "large-12 medium-12 small-12 columns large-centered ">
+    <div class = "large-12 medium-10 small-10 large-centered small-centered columns">
             <article class = 'article-wrapper'>
                 <h1>
                     <?=$article->title?>
