@@ -53,7 +53,7 @@ $autoload['packages'] = array();
 */
 
 //$autoload['libraries'] = array('database','migration');
-$autoload['libraries'] = array('database');
+$autoload['libraries'] = array('database','tank_auth');
 
 
 /*
