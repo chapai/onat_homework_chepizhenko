@@ -33,6 +33,8 @@ class Admin extends CH_Controller
         $this->listArticles();
     }
 
+    // ------- Article section ------- //
+
     function newArticle()
     {
         $action = $this->input->get('action');

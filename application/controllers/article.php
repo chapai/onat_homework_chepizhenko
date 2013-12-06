@@ -25,7 +25,6 @@ class Article extends CH_Controller
      */
     public function index()
     {
-
         $articles = $this->articlemodel->get();
 
         $viewData = array(
