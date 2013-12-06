@@ -14,6 +14,28 @@ class Categorymodel extends CH_Model
         parent::__construct();
         $this->_tablename = "categories";
     }
+
+    public function getNotEmptyCategories()
+    {
+        $result = $this->db->select('category_id')->distinct()->from('articles')->get()->result();
+
+        $uniqueIds = array();
+        foreach($result as $object)
+        {
+            $uniqueIds[] = $object->category_id;
+        }
+
+        //var_dump($uniqueIds);
+        //die();
+
+        $this->db
+            ->select()
+            ->from($this->_tablename)
+            ->where_in('id', $uniqueIds);
+
+        return  $this->db->get()->result();
+    }
+
 }
 
 ?>
