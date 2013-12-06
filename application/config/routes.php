@@ -43,5 +43,10 @@ $route['404_override'] = '';
 
 $route["article/(:any)"] = "article/showSingleArticle/$1";
 
+$route["admin/article/edit/(:any)"] = "admin/editarticle/$1";
+$route["admin/article/delete/(:any)"] = "admin/deletearticle/$1";
+$route["admin/article/new"] = "admin/newarticle";
+$route["admin/article/list"] = "admin/listarticles";
+
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
