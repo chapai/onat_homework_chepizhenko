@@ -41,6 +41,7 @@
 $route['default_controller'] = "article";
 $route['404_override'] = '';
 
+$route["article/category/(:any)"] = "article/showArticlesOfCategory/$1";
 $route["article/(:any)"] = "article/showSingleArticle/$1";
 
 $route["admin/article/edit/(:any)"] = "admin/editarticle/$1";
