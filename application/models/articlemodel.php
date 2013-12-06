@@ -23,7 +23,7 @@ class Articlemodel extends CH_Model
                                   articles.content as content,
                                   categories.id as category_id,
                                   categories.title as category,
-                                  articles.short_content as short'
+                                  articles.short_content as short';
     }
 
     /**
