@@ -118,4 +118,63 @@ class Admin extends CH_Controller
         $this->articlemodel->delete($articleId);
         redirect("/admin/article/list");
     }
+
+    // ------- Category section ------- //
+
+    function newCategory()
+    {
+        $categoryData = $this->input->post('category_data');
+        $categoryId = $this->categorymodel->post($categoryData);
+
+        if($categoryId)
+            redirect("/admin/category/list/");
+    }
+
+    function listCategories()
+    {
+        $categoriesList = $this->categorymodel->get();
+
+        $viewData = array(
+            'categories' => $categoriesList
+        );
+
+        $this->_addPageComponent('content','light/admin/category/list', $viewData);
+        $this->_renderPage();
+    }
+
+
+    function editCategory($categoryId = null)
+    {
+        $action = $this->input->get('action');
+
+        if(!$action)
+        {
+            $categoryData = $this->categorymodel->get(array('id' => $categoryId));
+            $viewData = array(
+                'category' => $categoryData
+            );
+            $this->_addPageComponent('content', 'light/admin/category/list', $viewData);
+            $this->_renderPage();
+        }
+        else
+        {
+            $categoryData = $this->input->post('category_data');
+            $this->categorymodel->patch($categoryData, array('id' => $categoryId));
+
+            redirect('/admin/category/edit/' . $categoryId);
+        }
+    }
+
+    function deleteCategory($categoryId = null)
+    {
+        if(is_null($categoryId))
+        {
+            show_404();
+            return;
+        }
+        $this->categorymodel->delete(array('id' => $categoryId));
+        redirect("/admin/category/list");
+    }
+
+
 }
