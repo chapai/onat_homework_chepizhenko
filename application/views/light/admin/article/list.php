@@ -36,7 +36,7 @@
                             <ul class="button-group" style = "display: table-cell;">
                                 <li><a href="/article/<?=@$article->alias?>" target="_blank" class="tiny secondary button">Read</a></li>
                                 <li><a href="/admin/article/edit/<?=@$article->id?>" class="tiny button">Edit</a></li>
-                                <li><a href="#" class="tiny alert button">Delete</a></li>
+                                <li><a href="/admin/article/delete/<?=@$article->id?>" class="tiny alert button">Delete</a></li>
                             </ul>
                         </td>
                     </tr>

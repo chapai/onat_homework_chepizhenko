@@ -11,7 +11,7 @@
 <nav class="top-bar" data-topbar>
     <ul class="title-area">
         <li class="name">
-            <h1><a href="#">Che</a></h1>
+            <h1><a href="/">Che</a></h1>
         </li>
     </ul>
 
@@ -29,7 +29,6 @@
                 <a href="#">Categories</a>
                 <ul class="dropdown">
                     <li><a href="/admin/category/list">List</a></li>
-                    <li><a href="/admin/category/new">New</a></li>
                 </ul>
             </li>
         </ul>

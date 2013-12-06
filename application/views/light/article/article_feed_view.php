@@ -32,6 +32,5 @@
 
             <hr />
         <?endforeach;?>
-
     </div>
 </div>

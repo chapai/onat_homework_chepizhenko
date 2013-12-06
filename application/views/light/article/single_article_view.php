@@ -6,7 +6,6 @@
  * @author chapai <chepizhenko.alex@gmail.com>
  * @date 29-10-2013
  */
-
 ?>
 
 <div class = "row">
@@ -19,6 +18,8 @@
                     <?=$article->category?>
                 </h3>
                 <p>
+                    <?=$article->short?>
+
                     <?=$article->content?>
                 </p>
             </article>
