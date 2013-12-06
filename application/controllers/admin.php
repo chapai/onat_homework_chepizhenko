@@ -154,12 +154,12 @@ class Admin extends CH_Controller
         {
             $categoryData = $this->categorymodel->get(array('id' => $categoryId));
             $viewData = array(
-                'category' => $categoryData
+                'category' => $categoryData[0]
             );
-            $this->_addPageComponent('content', 'light/admin/category/list', $viewData);
+            $this->_addPageComponent('content', 'light/admin/category/edit', $viewData);
             $this->_renderPage();
         }
-        else
+        elseif($action == "save")
         {
             $categoryData = $this->input->post('category_data');
             $this->categorymodel->patch($categoryData, array('id' => $categoryId));
