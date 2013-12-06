@@ -15,6 +15,14 @@ class Article extends CH_Controller
         parent::__construct();
 
         $this->load->model('articlemodel');
+        $this->load->model('categorymodel');
+
+        $viewData = array(
+            'categories' => $this->categorymodel->getNotEmptyCategories(),
+            'active_tab' => array('all' => "class='active'")
+        );
+
+        $this->_addPageComponent("navigation", "light/core/navigation", $viewData);
     }
 
     /**
