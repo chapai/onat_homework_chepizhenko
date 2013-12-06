@@ -48,10 +48,21 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'db_user';
-$db['default']['password'] = '';
-$db['default']['database'] = 'onat_homework';
+if(getenv('APPLICATION_ENV') && (getenv('APPLICATION_ENV') == 'chapai_dev'))
+{
+    $db['default']['hostname'] = 'localhost';
+    $db['default']['username'] = 'root';
+    $db['default']['password'] = '215519008';
+    $db['default']['database'] = 'onat_homework';
+}
+else
+{
+    $db['default']['hostname'] = 'sakurasu.mysql.ukraine.com.ua';
+    $db['default']['username'] = 'sakurasu_onat';
+    $db['default']['password'] = '1237896540';
+    $db['default']['database'] = 'sakurasu_onat';
+}
+
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
@@ -63,7 +74,6 @@ $db['default']['dbcollat'] = 'utf8_general_ci';
 $db['default']['swap_pre'] = '';
 $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
-
 
 /* End of file database.php */
 /* Location: ./application/config/database.php */
