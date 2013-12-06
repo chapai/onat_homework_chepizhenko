@@ -14,38 +14,29 @@ class Articlemodel extends CH_Model
 
     function __construct()
     {
+        parent::__construct();
         $this->_tablename = 'articles';
     }
 
     /**
-     * @param string $articleIdentifier
-     * @return array|object If article identifier is null return type is object(article entity), else array of objects.
+     * @param string|int $articleIdentifier
+     *
+     * @return array|object If article identifier is not null return type is object(article entity),
+     *                      else array of objects.
      */
     public function get($articleIdentifier = null)
     {
-//        $whereArray = null;
-//        $limit = null;
-//
-//        if(!$articleIdentifier == null)
-//        {
-//            if(is_numeric($articleIdentifier))
-//            {
-//                $whereArray = array('id' => $articleIdentifier);
-//                $limit = 1;
-//            }
-//            else
-//            {
-//                $whereArray = array('alias' => $articleIdentifier);
-//                $limit = 1;
-//            }
-//        }
-//
-//        return parent::get($whereArray, $limit);
+        $fieldsToSelect = 'articles.id as id,
+                           articles.alias as alias,
+                           articles.title as title,
+                           articles.content as content,
+                           categories.id as category_id,
+                           categories.title as category,
+                           articles.short_content as short';
 
-        $this->db->select('articles.alias as alias, articles.title as title, articles.content as content, categories.title as category, articles.short_content as short');
+        $this->db->select($fieldsToSelect);
         $this->db->from($this->_tablename);
         $this->db->join('categories', 'articles.category_id = categories.id');
-
 
         if($articleIdentifier != null)
         {
@@ -60,26 +51,5 @@ class Articlemodel extends CH_Model
         }
 
         return $this->db->get()->result();
-    }
-
-    /**
-     * @param string $articleAlias
-     * @return mixed
-     */
-    private function _getByAlias($articleAlias)
-    {
-
-
-
-    }
-
-    /**
-     * @param numeric $articleId
-     * @return object
-     */
-    private function _getById($articleId)
-    {
-
-
     }
 }
