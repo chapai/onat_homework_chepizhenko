@@ -54,4 +54,30 @@ class Article extends CH_Controller
         $this->_addPageComponent('content', 'light/article/single_article_view', $viewData);
         $this->_renderPage();
     }
+
+    public function showArticlesOfCategory($categoryAlias = null)
+    {
+        if(is_null($categoryAlias))
+            show_404();
+
+        $currentCategory = $this->categorymodel->get(array('alias' => $categoryAlias));
+
+        if(!$currentCategory)
+        {
+            show_404();
+            return;
+        }
+
+        $articles = $this->articlemodel->getByCategory($currentCategory[0]->id);
+
+        $this->_appendPageComponentData('navigation', 'active_tab', array($currentCategory[0]->id => "class='active'"));
+
+        $viewData = array(
+            'articles' => $articles
+        );
+
+        $this->_addPageComponent('content', 'light/article/article_feed_view', $viewData);
+        $this->_renderPage();
+    }
+
 }
