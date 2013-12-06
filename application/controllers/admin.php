@@ -117,7 +117,7 @@ class Admin extends CH_Controller
             show_404();
             return;
         }
-        $this->articlemodel->delete($articleId);
+        $this->articlemodel->delete(array('id' => $articleId));
         redirect("/admin/article/list");
     }
 
