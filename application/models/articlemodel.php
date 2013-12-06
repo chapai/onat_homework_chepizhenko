@@ -16,6 +16,14 @@ class Articlemodel extends CH_Model
     {
         parent::__construct();
         $this->_tablename = 'articles';
+
+        $this->_fieldsToSelect = 'articles.id as id,
+                                  articles.alias as alias,
+                                  articles.title as title,
+                                  articles.content as content,
+                                  categories.id as category_id,
+                                  categories.title as category,
+                                  articles.short_content as short'
     }
 
     /**
@@ -26,15 +34,7 @@ class Articlemodel extends CH_Model
      */
     public function get($articleIdentifier = null)
     {
-        $fieldsToSelect = 'articles.id as id,
-                           articles.alias as alias,
-                           articles.title as title,
-                           articles.content as content,
-                           categories.id as category_id,
-                           categories.title as category,
-                           articles.short_content as short';
-
-        $this->db->select($fieldsToSelect);
+        $this->db->select($this->_fieldsToSelect);
         $this->db->from($this->_tablename);
         $this->db->join('categories', 'articles.category_id = categories.id');
 
@@ -49,6 +49,16 @@ class Articlemodel extends CH_Model
             $this->db->limit(1);
             return $this->db->get()->row();
         }
+
+        return $this->db->get()->result();
+    }
+
+    public function getByCategory($categoryId)
+    {
+        $this->db->select($this->_fieldsToSelect);
+        $this->db->from($this->_tablename);
+        $this->db->where(array("category_id" => $categoryId));
+        $this->db->join('categories', 'articles.category_id = categories.id');
 
         return $this->db->get()->result();
     }
