@@ -20,6 +20,7 @@ class Admin extends CH_Controller
         }
 
         $this->load->model('articlemodel');
+        $this->load->model('categorymodel');
 
         // navigation bar for admin panel
         $this->_addPageComponent('navigation', 'light/admin/core/navigation', array());
@@ -52,7 +53,7 @@ class Admin extends CH_Controller
         }
         elseif($action == "create")
         {
-            $articleData = $this->input->post();
+            $articleData = $this->input->post('article_data');
             $articleId = $this->articlemodel->post($articleData);
 
             redirect("/admin/article/edit/" . $articleId);
