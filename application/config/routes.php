@@ -55,5 +55,6 @@ $route["admin/category/edit/(:any)"] = "admin/editcategory/$1";
 $route["admin/category/delete/(:any)"] = "admin/deletecategory/$1";
 $route["admin/category/new"] = "admin/newcategory";
 $route["admin/category/list"] = "admin/listcategories";
+
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

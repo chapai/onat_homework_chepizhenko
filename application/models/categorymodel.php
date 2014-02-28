@@ -25,9 +25,6 @@ class Categorymodel extends CH_Model
             $uniqueIds[] = $object->category_id;
         }
 
-        //var_dump($uniqueIds);
-        //die();
-
         $this->db
             ->select()
             ->from($this->_tablename)

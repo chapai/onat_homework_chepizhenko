@@ -45,7 +45,7 @@ class Article extends CH_Controller
 
     /** Shows article by alias or id.
      *
-     * @param string $articleAlias
+     * @param string $articleIdentifier
      */
     public function showSingleArticle($articleIdentifier)
     {
@@ -62,6 +62,13 @@ class Article extends CH_Controller
         $this->_renderPage();
     }
 
+
+    /**
+     * Shows articles of category by provided category
+     *
+     * @param null|string $categoryAlias
+     *
+     */
     public function showArticlesOfCategory($categoryAlias = null)
     {
         if(is_null($categoryAlias))

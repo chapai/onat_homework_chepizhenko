@@ -53,6 +53,12 @@ class Articlemodel extends CH_Model
         return $this->db->get()->result();
     }
 
+
+    /**  Returns articles of category with id ->$categoryid
+     *
+     * @param int $categoryId
+     * @return array mixed
+     */
     public function getByCategory($categoryId)
     {
         $this->db->select($this->_fieldsToSelect);
